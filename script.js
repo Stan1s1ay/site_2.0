@@ -1,5 +1,19 @@
 let tg = window.Telegram.WebApp; //получаем объект webapp телеграма
 
+let item = {
+    "burger":0,
+    "fries":0,
+    "coke":0
+};
+
+
+let total = 0;
+
+let burger = document.getElementById("burger");
+let fries = document.getElementById("fries");
+let coke = document.getElementById("coke");
+
+
 tg.expand(); //расширяем на все окно
 
 tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
@@ -9,6 +23,23 @@ tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунд�
 tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
 
+
+function createPlusButton(productName) {
+    var plusButton = document.createElement("button");
+    plusButton.innerHTML = "+";
+    plusButton.classList.add("btn_plus");
+    plusButton.id = "btn_" + productName + "_plus";
+    return plusButton;
+}
+
+// Функция для создания кнопки "-"
+function createMinusButton(productName) {
+    var minusButton = document.createElement("button");
+    minusButton.innerHTML = "-";
+    minusButton.classList.add("btn_minus");
+    minusButton.id = "btn_" + productName + "_minus";
+    return minusButton;
+}
 
 
 let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать
