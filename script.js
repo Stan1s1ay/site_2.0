@@ -42,6 +42,64 @@ function createMinusButton(productName) {
 }
 
 
+function addButtonElements(parentElement, productName, price) {
+    var plusButton = createPlusButton(productName);
+    var priceSpan = document.createElement("span");
+    priceSpan.classList.add("sum");
+    priceSpan.innerHTML = price.toString()+" zl";
+    var minusButton = createMinusButton(productName);
+
+    parentElement.appendChild(minusButton);
+    parentElement.appendChild(priceSpan);
+    parentElement.appendChild(plusButton);
+};
+
+function addButtonElements(parentElement, productName, price) {
+    var plusButton = createPlusButton(productName);
+    var priceSpan = document.createElement("span");
+    priceSpan.classList.add("sum");
+    priceSpan.innerHTML = price.toString()+" zl";
+    var minusButton = createMinusButton(productName);
+
+    parentElement.appendChild(minusButton);
+    parentElement.appendChild(priceSpan);
+    parentElement.appendChild(plusButton);
+};
+
+
+function count(list) {
+    var sum = 0;
+    sum += list["burger"]*15.01;
+    sum += list["fries"]*10.15;
+    sum += list["coke"]*9.99;
+    return sum;
+
+};
+
+
+burger.addEventListener("click", function(){
+    var parentDiv = burger.parentElement;
+    var price = 15.01;
+    burger.classList.add("hidden");
+    item["burger"] += 1;
+    var sum = item["burger"]*price
+    addButtonElements(parentDiv, "burger",sum);
+    if (!tg.MainButton.isVisible) {
+
+        tg.MainButton.setText("В корзине товаров на "+count(item)+" злотых. Оплатить");
+        tg.MainButton.show();
+    }
+});
+
+
+
+
+
+
+
+
+
+
 let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать
 btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
 	if (tg.MainButton.isVisible){ //если кнопка показаana
